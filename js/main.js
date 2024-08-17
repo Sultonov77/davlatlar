@@ -1,3 +1,5 @@
+const body = document.body;
+const header = document.querySelector("header");
 let countryList = document.querySelector(".countries-list");
 let selectCountry = document.querySelector(".select-country");
 let searchSection = document.querySelector(".search-section");
@@ -5,6 +7,7 @@ let likeList = document.querySelector(".like-list");
 let saveList = document.querySelector(".save-list");
 let likeCount = document.querySelector(".like-count");
 let saveCount = document.querySelector(".save-count");
+// let modeChange = document.querySelector("mode")
 let elModal = document.querySelector(".modal");
 // cards
 function allCountries(arr, list) {
@@ -21,7 +24,7 @@ function allCountries(arr, list) {
     let elMore = document.createElement("button");
 
     elItem.className =
-      "w-[300px]  hover:scale-105 duration-200 z-0 p-2 m-6 bg-slate-300 rounded-[10px]";
+      "w-[300px] hover:scale-105 duration-200 z-0 p-2 m-6 bg-slate-300 rounded-[10px]";
     elImg.src = value.flag;
     elImg.className = "w-[100%] h-[200px] rounded-[10px] ";
     elName.textContent = "Country: " + value.name;
@@ -40,7 +43,7 @@ function allCountries(arr, list) {
       value.id
     } fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
-    elLike.className = `border border-slate-700  rounded-md  m-2 hover:bg-red-500 hover:text-white transition-all duration-400`;
+    elLike.className = `rounded-md  m-2`;
     elLike.id = value.id;
     elSave.innerHTML = `
     <svg id = ${
@@ -52,7 +55,7 @@ function allCountries(arr, list) {
       value.id
     } fill-rule="evenodd" clip-rule="evenodd" d="M6.75 6L7.5 5.25H16.5L17.25 6V19.3162L12 16.2051L6.75 19.3162V6ZM8.25 6.75V16.6838L12 14.4615L15.75 16.6838V6.75H8.25Z" />
 </svg`;
-    elSave.className = `border border-slate-700 rounded-md m-2  hover:bg-blue-500 hover:text-white transition-all duration-400 `;
+    elSave.className = ` rounded-md m-2`;
     elSave.id = value.id;
     elMore.className =
       "text-md  flex border-slate-700 border rounded-md px-3 py-1 hover:bg-blue-900 hover:text-white transition-all duration-500";
@@ -91,7 +94,6 @@ function allCountries(arr, list) {
     elMore.addEventListener("click", (e) => {
       const findObj = countrys.find((item) => item.id == e.target.id);
       elModal.classList.remove("hidden");
-      
       elModal.innerHTML = `
    <div class="flex items-center justify-between">
       <img src=${findObj.flag} width="300" height="280"/>
@@ -156,5 +158,23 @@ searchSection.addEventListener("keyup", (evt) => {
       item.name.toLowerCase().includes(searchValue.toLowerCase().trim())
     );
     allCountries(searchList, countryList);
+  }
+});
+// dark mode
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+let isDarkMode = false;
+darkModeToggle.addEventListener("click", () => {
+  if (isDarkMode) {
+    body.classList.remove("dark-mode");
+    header.classList.remove("dark-mode");
+    selectCountry.classList.remove("dark-mode");
+    searchSection.classList.remove("dark-mode");
+    isDarkMode = false;
+  } else {
+    body.classList.add("dark-mode");
+    header.classList.add("dark-mode");
+    searchSection.classList.add("dark-mode");
+    selectCountry.classList.add("dark-mode");
+    isDarkMode = true;
   }
 });

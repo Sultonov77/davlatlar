@@ -1,86 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
       }
-    }
-  </style>
+    </style>
+    <link rel="stylesheet" href="./css/index.css" />
     <title>Davlatlar</title>
-</head>
-<body>
-   <!--header part-->
-    <header class="header shadow-md z-30 fixed top-0 w-full bg-white">
-      <div class="container mx-auto p-5 flex items-center justify-between">
-        <a class="font-bold text-[30px]" href="/">Countries</a>
-        <div class="flex items-center gap-5">
-          <button
-            class="like-list w-[50px] h-[50px] border-[1px] border-red-400 text-red-600 scale-105 rounded-[50%] flex items-center justify-center"
-          >
-            <span class="like-count">0</span>
-            <img
-              src="images/heart-icon.svg"
-              alt="like-icon"
-              width="25"
-              height="25"
-            />
-          </button>
-          <button
-            class="save-list w-[50px] scale-105 h-[50px] border-[1px] border-green-400 text-green-400 rounded-[50%] flex items-center justify-center"
-          >
-            <span class="save-count">0</span>
-            <img
-              class="scale-125"
-              src="images/save-svgrepo-com.svg"
-              alt="like-icon"
-              width="25"
-              height="25"
-            />
-          </button>
-        </div>
-      </div>
-    </header>
-<!-- main part of site -->
-    <main class="mt-20 main">
-      <section class="py-5">
-        <div class="container mx-auto">
-          <div class="flex items-center justify-between p-5">
-            <input
-              type="text"
-              class="p-3 search-section rounded-[10px] border-[1px] w-[250px] border-slate-500"
-              placeholder="Search for a countries"
-            />
-            <select
-              class="p-3 select-country rounded-[10px] border-[1px] w-[250px] border-slate-500"
+  </head>
+  <body>
+    <div class="back">
+      <!--header part-->
+      <header class="header shadow-md z-30 fixed top-0 w-full bg-white">
+        <div class="container mx-auto p-5 flex items-center justify-between">
+          <a class="font-bold text-[30px]" href="/">Countries</a>
+          <div class="flex items-center gap-5">
+            <button
+              class="like-list w-[50px] h-[50px] border-[1px] border-red-400 text-red-600 scale-105 rounded-[50%] flex items-center justify-center"
             >
-              <option>All</option>
-            </select>
+              <span class="like-count">0</span>
+              <img
+                src="images/heart-icon.svg"
+                alt="like-icon"
+                width="25"
+                height="25"
+              />
+            </button>
+            <button
+              class="save-list w-[50px] scale-105 h-[50px] border-[1px] border-blue-400 text-blue-400 rounded-[50%] flex items-center justify-center"
+            >
+              <span class="save-count">0</span>
+              <img
+                class="scale-125"
+                src="images/save-svgrepo-com.svg"
+                alt="like-icon"
+                width="25"
+                height="25"
+              />
+            </button>
+            <!-- dark mode -->
+            <button
+              id="dark-mode-toggle"
+              class="toggle-btn mode w-[50px] scale-105 h-[50px] border-[1px] border-blue-400 rounded-[50%] flex items-center justify-center"
+            >
+              <span class="save-count">Mode</span>
+            </button>
           </div>
-          <ul class="countries-list flex flex-wrap gap-10 ml-16 mt-10"></ul>
         </div>
-      </section>
-    </main>
-    <!-- modal part -->
-    <div
-      class="modal w-[520px] h-[250px] fixed top-0 bottom-0 left-0 right-0 m-auto bg-slate-400 p-5 rounded-[10px] hidden"
-    ></div>
+      </header>
+      <!-- main part of site -->
+      <main class="mt-20 main">
+        <section class="py-5">
+          <div class="container mx-auto">
+            <div class="flex items-center justify-between p-5">
+              <input
+                type="text"
+                class="p-3 search-section rounded-[10px] border-[1px] w-[250px] border-slate-500"
+                placeholder="Search for a countries"
+              />
+              <select
+                class="p-3 select-country rounded-[10px] border-[1px] w-[250px] border-slate-500"
+              >
+                <option>All</option>
+              </select>
+            </div>
+            <ul class="countries-list flex flex-wrap gap-10 ml-16 mt-10"></ul>
+          </div>
+        </section>
+      </main>
+      <!-- modal part -->
+      <div
+        class="modal w-[600px] h-[260px] fixed top-0 bottom-0 left-0 right-0 m-auto bg-slate-200 p-5 rounded-[10px] hidden"
+      ></div>
+    </div>
     <script src="./js/data..js"></script>
     <script src="./js/main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
-</body>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+  </body>
 </html>
