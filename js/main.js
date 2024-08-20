@@ -7,8 +7,8 @@ let likeList = document.querySelector(".like-list");
 let saveList = document.querySelector(".save-list");
 let likeCount = document.querySelector(".like-count");
 let saveCount = document.querySelector(".save-count");
-// let modeChange = document.querySelector("mode")
 let elModal = document.querySelector(".modal");
+let elWrapper = document.querySelector("#wrapper")
 // cards
 function allCountries(arr, list) {
   list.innerHTML = " ";
@@ -107,6 +107,7 @@ function allCountries(arr, list) {
       Exit
        </button>
     </div> `;
+    
     });
   });
 }
